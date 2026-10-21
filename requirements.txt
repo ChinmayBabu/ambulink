@@ -1,0 +1,7 @@
+# Raspberry Pi 5, 64-bit Raspberry Pi OS (Bookworm), Python 3.11 in a venv
+numpy
+tensorflow          # aarch64 wheel; must be able to load the shipped .keras file
+scikit-learn        # for the scaler.joblib (ideally the same version it was saved with)
+joblib
+requests            # API-key mode (firebase_rest.py)
+firebase-admin      # only needed for service-account mode

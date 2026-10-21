@@ -1,0 +1,21 @@
+# /etc/systemd/system/ambulink.service
+# sudo systemctl daemon-reload && sudo systemctl enable --now ambulink
+[Unit]
+Description=AMBULINK LSTM forecaster (Firebase -> voice alerts)
+After=network-online.target sound.target
+Wants=network-online.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/ambulink_lstm
+Environment=FIREBASE_DB_URL=https://YOUR-PROJECT-default-rtdb.firebaseio.com
+Environment=FIREBASE_API_KEY=YOUR_WEB_API_KEY
+# or, instead of the API key:
+# Environment=FIREBASE_CRED=/home/pi/ambulink_lstm/serviceAccountKey.json
+# add  --aplay-device plughw:2,0  if the default audio device is wrong
+ExecStart=/home/pi/ambulink_lstm/venv/bin/python firebase_service.py --model lstm_model
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

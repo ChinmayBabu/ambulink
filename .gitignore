@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+secrets.txt
+
+# Generated model artifacts
+lstm_model.*
+
+# Logs and local runtime files
+*.log
+*.pid
+
+# Test and coverage output
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Platform and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
